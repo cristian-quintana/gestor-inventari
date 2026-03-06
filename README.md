@@ -4,21 +4,19 @@
 
 Aplicació per gestionar un inventari, veure productes, afegir-ne, editar, eliminar, filtrar per categories, avís de stock baix, estadistiques..
 
-Aquest projecte gorma partd0una pràctica del CFGS de DAM a l'IOC.
+Aquest projecte forma part d'una pràctica del CFGS de DAM a l'IOC.
 
 ## Stack Tècnic:
 
--Angular CLI 18.2.21
--SCSS
--Standalone Components
--Node.js v22.16.0
--NPM 11.6.0
+- Angular CLI 18.2.21
+- SCSS
+- Standalone Components
+- Node.js v22.16.0
+- NPM 11.6.0
 
 ## Estat
 
 Configuració inicial del projecte completada i verificada.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
 
 ## Development server
 
