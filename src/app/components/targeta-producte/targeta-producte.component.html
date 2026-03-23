@@ -1,0 +1,18 @@
+<article class="targeta">
+  <h3 class="targeta__titol">{{ producte.nom }}</h3>
+
+  <p class="targeta__dada">
+    <strong>Preu:</strong>
+    {{ producte.preu | number: "1.2-2" }} €
+  </p>
+
+  <p class="targeta__dada">
+    <strong>Quantitat:</strong>
+    {{ producte.quantitat }}
+  </p>
+
+  <p class="targeta__dada" *ngIf="producte.categoria">
+    <strong>Categoria:</strong>
+    {{ producte.categoria }}
+  </p>
+</article>

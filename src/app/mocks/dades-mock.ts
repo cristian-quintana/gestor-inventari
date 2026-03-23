@@ -1,6 +1,6 @@
-import { Element } from '../models/element.model';
+import { Producte } from '../models/producte.model';
 
-export const DADES_MOCK: Element[] = [
+export const DADES_MOCK: Producte[] = [
   {
     id: 1,
     nom: 'Condensador ceràmic 100nF',

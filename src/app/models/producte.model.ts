@@ -1,4 +1,4 @@
-export interface Element {
+export interface Producte {
   id: number;
   nom: string;
   preu: number;
