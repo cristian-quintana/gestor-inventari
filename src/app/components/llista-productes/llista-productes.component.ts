@@ -12,4 +12,9 @@ import { TargetaProducteComponent } from '../targeta-producte/targeta-producte.c
 })
 export class LlistaProductesComponent {
   @Input() productes: Producte[] = [];
+
+  trackByElementId(index: number, producte: Producte): number {
+    return producte.id;
+  }
+
 }
