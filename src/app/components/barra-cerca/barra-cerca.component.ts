@@ -1,24 +1,19 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-barra-cerca',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './barra-cerca.component.html',
-  styleUrl: './barra-cerca.component.scss'
+  styleUrl: './barra-cerca.component.scss',
 })
 export class BarraCercaComponent {
   textCerca: string = '';
 
   @Output() cercaCanviada = new EventEmitter<string>();
 
-  actualitzarText(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    this.textCerca = input.value;
-  }
-
   enviarCerca(): void {
-    this.cercaCanviada.emit(this.textCerca);
+    this.cercaCanviada.emit(this.textCerca.trim());
   }
 }

@@ -16,5 +16,4 @@ export class LlistaProductesComponent {
   trackByElementId(index: number, producte: Producte): number {
     return producte.id;
   }
-
 }

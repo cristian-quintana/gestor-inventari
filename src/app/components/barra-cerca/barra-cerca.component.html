@@ -1,13 +1,20 @@
-<section class="barra-cerca">
+<form class="barra-cerca" #formulari="ngForm" (ngSubmit)="enviarCerca()">
   <label for="cerca">Cerca productes</label>
 
   <input
     id="cerca"
+    name="cerca"
     type="text"
     placeholder="Escriu un nom o categoria"
-    [value]="textCerca"
-    (input)="actualitzarText($event)"
+    [(ngModel)]="textCerca"
+    minlength="3"
+    #cercaInput="ngModel"
+    aria-describedby="error-cerca"
   />
 
-  <button type="button" (click)="enviarCerca()">Cercar</button>
-</section>
+  <p class="missatge-error" *ngIf="cercaInput.invalid && cercaInput.touched">
+    La cerca ha de tenir almenys 3 caràcters.
+  </p>
+
+  <button type="submit" [disabled]="formulari.invalid">Cercar</button>
+</form>
