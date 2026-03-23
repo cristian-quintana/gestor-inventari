@@ -1,0 +1,13 @@
+<section class="barra-cerca">
+  <label for="cerca">Cerca elements</label>
+
+  <input
+    id="cerca"
+    type="text"
+    placeholder="Escriu un nom o categoria"
+    [value]="textCerca"
+    (input)="actualitzarText($event)"
+  />
+
+  <button type="button" (click)="enviarCerca()">Cercar</button>
+</section>
