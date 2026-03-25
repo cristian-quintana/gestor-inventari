@@ -16,15 +16,18 @@
   border-radius: 8px;
   font-size: 1rem;
 }
+
 .barra-cerca input.ng-invalid.ng-touched {
   border-color: #dc2626;
   background-color: #fef2f2;
 }
+
 .missatge-error {
   margin: 0;
   color: #b91c1c;
   font-size: 0.9rem;
 }
+
 .barra-cerca button {
   align-self: flex-start;
   padding: 0.65rem 1rem;

@@ -12,9 +12,21 @@
     aria-describedby="error-cerca"
   />
 
-  <p class="missatge-error" *ngIf="cercaInput.invalid && cercaInput.touched">
+  <p
+    id="error-cerca"
+    class="missatge-error"
+    *ngIf="cercaInput.invalid && cercaInput.touched"
+    role="alert"
+    aria-live="assertive"
+  >
     La cerca ha de tenir almenys 3 caràcters.
   </p>
 
-  <button type="submit" [disabled]="formulari.invalid">Cercar</button>
+  <button
+    type="submit"
+    [disabled]="formulari.invalid"
+    aria-label="Cercar elements"
+  >
+    Cercar
+  </button>
 </form>
