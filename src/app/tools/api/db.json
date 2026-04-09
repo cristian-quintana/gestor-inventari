@@ -1,0 +1,33 @@
+{
+  "elements": [
+    {
+      "id": "001",
+      "nom": "Condensador ceràmic 100nF",
+      "descripcio": "Condensador de ceràmica per a circuits electrònics generals.",
+      "categoria": "Condensadors",
+      "preu": 0.15,
+      "imatge": "img/elements/condensador-100nf.jpg",
+      "popular": true,
+      "stock": 120
+    },
+    {
+      "id": "002",
+      "nom": "Fusible 5A 250V",
+      "descripcio": "Fusible de protecció per a circuits elèctrics de baixa tensió.",
+      "categoria": "Protecció",
+      "preu": 1.2,
+      "imatge": "/img/elements/fusible-5a.jpg",
+      "popular": false,
+      "stock": 30
+    },
+    {
+      "id": "003",
+      "nom": "Pack cables variats",
+      "descripcio": "Pack assortit de cables per a muntatges elèctrics i electrònics.",
+      "preu": 5,
+      "imatge": "/img/elements/cables.jpg",
+      "popular": true,
+      "stock": 50
+    }
+  ]
+}

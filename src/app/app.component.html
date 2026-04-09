@@ -10,14 +10,12 @@
     </p>
   </header>
 
-  <nav aria-label="Cerca d'elements">
+  <!--<nav aria-label="Cerca d'elements">
     <app-barra-cerca (cercaCanviada)="onCercaCanviada($event)">
     </app-barra-cerca>
-  </nav>
+  </nav>-->
 
-  <section aria-label="Resultats de la cerca">
-    <app-llista-productes
-      [productes]="productesFiltrats"
-    ></app-llista-productes>
+  <section aria-label="Resultats del catàleg">
+    <app-cataleg-page></app-cataleg-page>
   </section>
 </main>

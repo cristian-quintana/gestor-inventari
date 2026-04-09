@@ -1,1 +1,63 @@
-<p>cataleg-page works!</p>
+<div class="cataleg-page">
+  <header class="page-header">
+    <h1>Catàleg de Productes</h1>
+    <p class="subtitle">Productes populars del nostre inventari</p>
+  </header>
+
+  <!-- Estat: Carregant -->
+  <div class="estat-carregant" *ngIf="elementService.carregant()">
+    <div class="spinner"></div>
+    <p>Carregant elements...</p>
+  </div>
+
+  <!-- Estat: Error -->
+  <div
+    class="estat-error"
+    *ngIf="!elementService.carregant() && elementService.error()"
+  >
+    <div class="error-icon">⚠️</div>
+    <h2>Error al carregar productes</h2>
+    <p class="error-missatge">{{ elementService.error() }}</p>
+    <button class="btn-reintentar" (click)="reintentar()">Reintentar</button>
+  </div>
+
+  <!-- Estat: Èxit (elements carregats) -->
+  <div
+    class="estat-exit"
+    *ngIf="!elementService.carregant() && !elementService.error()"
+  >
+    <!-- Missatge si no hi ha elements -->
+    <div class="sense-resultats" *ngIf="elementService.elements().length === 0">
+      <p>No s'han trobat productes populars</p>
+    </div>
+
+    <!-- Llistat d'elements -->
+    <div class="elements-grid" *ngIf="elementService.elements().length > 0">
+      <div
+        class="element-card"
+        *ngFor="let element of elementService.elements()"
+      >
+        <img
+          [src]="element.imatge"
+          [alt]="element.nom"
+          class="element-imatge"
+        />
+        <div class="element-info">
+          <h3 class="element-nom">{{ element.nom }}</h3>
+          <p class="element-categoria" *ngIf="element.categoria">
+            {{ element.categoria }}
+          </p>
+          <p class="element-descripcio">{{ element.descripcio }}</p>
+          <div class="element-footer">
+            <span class="element-preu"
+              >{{ element.preu | number: "1.2-2" }}€</span
+            >
+            <span class="element-stock" [class.baix-stock]="element.stock < 20">
+              Stock: {{ element.stock }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
