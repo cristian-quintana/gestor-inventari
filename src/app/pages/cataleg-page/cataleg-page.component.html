@@ -38,12 +38,12 @@
         *ngFor="let element of elementService.elements()"
       >
         <img
-          [src]="element.imatge"
-          [alt]="element.nom"
+          [src]="element.imatgeUrl"
+          [alt]="element.titol"
           class="element-imatge"
         />
         <div class="element-info">
-          <h3 class="element-nom">{{ element.nom }}</h3>
+          <h3 class="element-nom">{{ element.titol }}</h3>
           <p class="element-categoria" *ngIf="element.categoria">
             {{ element.categoria }}
           </p>
@@ -52,8 +52,11 @@
             <span class="element-preu"
               >{{ element.preu | number: "1.2-2" }}€</span
             >
-            <span class="element-stock" [class.baix-stock]="element.stock < 20">
-              Stock: {{ element.stock }}
+            <span
+              class="element-stock"
+              [class.baix-stock]="element.unitats < 20"
+            >
+              Stock: {{ element.unitats }}
             </span>
           </div>
         </div>

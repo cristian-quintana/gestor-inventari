@@ -5,13 +5,13 @@ export function adaptarElementApi(
 ): ElementCataleg {
   return {
     id: apiResponse.id,
-    nom: apiResponse.nom,
+    titol: apiResponse.nom,
     descripcio: apiResponse.descripcio,
     categoria: apiResponse.categoria,
     preu: apiResponse.preu,
-    imatge: apiResponse.imatge,
+    imatgeUrl: apiResponse.imatge,
     esPopular: apiResponse.popular,
-    stock: apiResponse.stock,
+    unitats: apiResponse.stock,
   };
 }
 

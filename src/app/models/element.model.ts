@@ -11,13 +11,13 @@ export interface ElementApiResponse {
 
 export interface ElementCataleg {
   id: string;
-  nom: string;
+  titol: string;
   descripcio: string;
   categoria?: string;
   preu: number;
-  imatge: string;
+  imatgeUrl: string;
   esPopular: boolean;
-  stock: number;
+  unitats: number;
 }
 export interface ElementsCercaResponse {
   elements: ElementApiResponse[];
