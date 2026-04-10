@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Producte } from '../../models/producte.model';
-
+import { PreferitsService } from '../../serveis/preferits.service';
+import { ElementCataleg } from '../../models/element.model';
 @Component({
   selector: 'app-targeta-producte',
   standalone: true,
@@ -10,5 +10,14 @@ import { Producte } from '../../models/producte.model';
   styleUrl: './targeta-producte.component.scss',
 })
 export class TargetaProducteComponent {
-  @Input() producte!: Producte;
+  @Input({ required: true }) producte!: ElementCataleg;
+  constructor(public preferitsService: PreferitsService) {}
+
+  togglePreferit(): void {
+    if (this.preferitsService.esPreferit(this.producte.id)) {
+      this.preferitsService.eliminarPreferit(this.producte.id);
+    } else {
+      this.preferitsService.afegirPreferit(this.producte);
+    }
+  }
 }

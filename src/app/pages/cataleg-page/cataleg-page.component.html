@@ -3,6 +3,7 @@
     <h1>Catàleg de Productes</h1>
     <p class="subtitle">Productes populars del nostre inventari</p>
   </header>
+
   <app-formulari-cerca></app-formulari-cerca>
   <!-- Estat: Carregant -->
   <div class="estat-carregant" *ngIf="elementService.carregant()">
@@ -33,34 +34,34 @@
 
     <!-- Llistat d'elements -->
     <div class="elements-grid" *ngIf="elementService.elements().length > 0">
-      <div
-        class="element-card"
+      <app-targeta-producte
         *ngFor="let element of elementService.elements()"
-      >
-        <img
-          [src]="element.imatgeUrl"
-          [alt]="element.titol"
-          class="element-imatge"
-        />
-        <div class="element-info">
-          <h3 class="element-nom">{{ element.titol }}</h3>
-          <p class="element-categoria" *ngIf="element.categoria">
-            {{ element.categoria }}
-          </p>
-          <p class="element-descripcio">{{ element.descripcio }}</p>
-          <div class="element-footer">
-            <span class="element-preu"
-              >{{ element.preu | number: "1.2-2" }}€</span
-            >
-            <span
-              class="element-stock"
-              [class.baix-stock]="element.unitats < 20"
-            >
-              Stock: {{ element.unitats }}
-            </span>
-          </div>
-        </div>
-      </div>
+        [producte]="element"
+      ></app-targeta-producte>
     </div>
   </div>
+
+  <section
+    class="panell-preferits"
+    *ngIf="preferitsService.preferits().length > 0"
+  >
+    <h2>Els meus preferits</h2>
+    <p class="preferits-count">
+      Preferits: {{ preferitsService.totalPreferits() }}
+    </p>
+
+    <ul class="preferits-llista">
+      <li *ngFor="let preferit of preferitsService.preferits()">
+        {{ preferit.titol }}
+      </li>
+    </ul>
+  </section>
+  <section
+    class="panell-preferits"
+    *ngIf="preferitsService.preferits().length === 0"
+  >
+    <h2>Els meus preferits</h2>
+    <p class="preferits-count">Preferits: 0</p>
+    <p>No hi ha preferits encara.</p>
+  </section>
 </div>

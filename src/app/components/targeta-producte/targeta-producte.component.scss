@@ -1,18 +1,109 @@
 .targeta {
-  background: #ffffff;
-  border: 1px solid #d9e2ec;
-  border-radius: 12px;
+  position: relative;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.targeta__imatge {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.targeta__contingut {
   padding: 1rem;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .targeta__titol {
-  margin: 0 0 0.75rem;
-  color: #1f3c88;
-  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
 }
 
-.targeta__dada {
-  margin: 0.35rem 0;
-  color: #334155;
+.targeta__categoria {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  color: #3498db;
+  font-weight: 600;
+}
+
+.targeta__descripcio {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.targeta__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+}
+
+.targeta__preu {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.targeta__stock {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0.25rem 0.5rem;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+
+  &.baix-stock {
+    background-color: #ffe6e6;
+    color: #e74c3c;
+  }
+}
+
+.btn-preferit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: white;
+  border: 2px solid #f39c12;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  &.actiu {
+    background-color: #f39c12;
+    color: white;
+  }
 }

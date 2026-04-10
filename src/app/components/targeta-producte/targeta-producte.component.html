@@ -1,18 +1,41 @@
 <article class="targeta">
-  <h3 class="targeta__titol">{{ producte.nom }}</h3>
+  <button
+    type="button"
+    class="btn-preferit"
+    [class.actiu]="preferitsService.esPreferit(producte.id)"
+    (click)="togglePreferit()"
+    [attr.aria-pressed]="preferitsService.esPreferit(producte.id)"
+    aria-label="Afegir o eliminar de preferits"
+  >
+    {{ preferitsService.esPreferit(producte.id) ? '★' : '☆' }}
+  </button>
 
-  <p class="targeta__dada">
-    <strong>Preu:</strong>
-    {{ producte.preu | number: "1.2-2" }} €
-  </p>
+  <img
+    [src]="producte.imatgeUrl"
+    [alt]="producte.titol"
+    class="targeta__imatge"
+  />
 
-  <p class="targeta__dada">
-    <strong>Quantitat:</strong>
-    {{ producte.quantitat }}
-  </p>
+  <div class="targeta__contingut">
+    <h3 class="targeta__titol">{{ producte.titol }}</h3>
 
-  <p class="targeta__dada" *ngIf="producte.categoria">
-    <strong>Categoria:</strong>
-    {{ producte.categoria }}
-  </p>
+    <p class="targeta__categoria" *ngIf="producte.categoria">
+      {{ producte.categoria }}
+    </p>
+
+    <p class="targeta__descripcio">{{ producte.descripcio }}</p>
+
+    <div class="targeta__footer">
+      <span class="targeta__preu">
+        {{ producte.preu | number:'1.2-2' }} €
+      </span>
+
+      <span
+        class="targeta__stock"
+        [class.baix-stock]="producte.unitats < 20"
+      >
+        Stock: {{ producte.unitats }}
+      </span>
+    </div>
+  </div>
 </article>
