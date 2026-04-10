@@ -1,0 +1,50 @@
+<div class="formulari-cerca">
+  <form [formGroup]="formulariCerca" novalidate>
+    <label for="termeCerca">Cercar productes</label>
+
+    <div class="camp-cerca">
+      <input
+        id="termeCerca"
+        type="text"
+        formControlName="termeCerca"
+        placeholder="Escriviu el nom del producte..."
+        [class.invalid]="
+          termeCercaControl?.touched && termeCercaControl?.invalid
+        "
+      />
+
+      <button
+        *ngIf="mostrarBotoNetejar"
+        type="button"
+        class="btn-netejar"
+        (click)="netejar()"
+      >
+        Netejar
+      </button>
+    </div>
+
+    <!-- Indicador visual durant validació asíncrona -->
+    <div class="info" *ngIf="termeCercaControl?.pending">
+      <span class="spinner-petit"></span>
+      <span>Validant...</span>
+    </div>
+
+    <!-- Errors: només quan el camp ha estat tocat -->
+    <div
+      class="error"
+      *ngIf="termeCercaControl?.touched && termeCercaControl?.invalid"
+    >
+      <p *ngIf="termeCercaControl?.hasError('minlength')">
+        El terme de cerca ha de tenir almenys 2 caràcters.
+      </p>
+
+      <p *ngIf="termeCercaControl?.hasError('maxlength')">
+        El terme de cerca no pot superar els 50 caràcters.
+      </p>
+
+      <p *ngIf="termeCercaControl?.hasError('sensResultats')">
+        No s’han trobat resultats per aquest terme.
+      </p>
+    </div>
+  </form>
+</div>

@@ -1,7 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ElementCataleg, ElementApiResponse } from '../models/element.model';
 import { adaptarElementsApi } from '../adaptadors/element.adaptador';
@@ -61,7 +61,7 @@ export class ElementService {
 
     this.http
       .get<ElementApiResponse[]>(
-        `${this.apiUrl}/elements?q=${encodeURIComponent(termeNet)}`,
+        `${this.apiUrl}/elements?nom_like=${encodeURIComponent(termeNet)}`,
       )
       .pipe(
         map(adaptarElementsApi),
@@ -80,20 +80,21 @@ export class ElementService {
       .subscribe();
   }
 
-  /**
-   * Comprova si un codi d'element està disponible (per validació asíncrona)
-   */
-  codiDisponible(codi: string): Promise<boolean> {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        this.http
-          .get<ElementApiResponse[]>(`${this.apiUrl}/elements?id=${codi}`)
-          .subscribe({
-            next: (elements) => resolve(elements.length === 0),
-            error: () => resolve(false),
-          });
-      }, 500); // Simula latència de validació
-    });
+  comprovarSiHiHaResultats(terme: string): Observable<boolean> {
+    const termeNet = terme.trim();
+
+    if (!termeNet) {
+      return of(true);
+    }
+
+    return this.http
+      .get<
+        ElementApiResponse[]
+      >(`${this.apiUrl}/elements?nom_like=${encodeURIComponent(termeNet)}`)
+      .pipe(
+        map((elements) => elements.length > 0),
+        catchError(() => of(true)),
+      );
   }
 
   /**

@@ -1,0 +1,92 @@
+.formulari-cerca {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  margin-bottom: 2rem;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  label {
+    font-weight: 600;
+    color: #333;
+  }
+
+  .camp-cerca {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    &.invalid {
+      border-color: #e74c3c;
+      background: #fff5f5;
+    }
+  }
+
+  .btn-netejar {
+    border: none;
+    background: #f1f3f5;
+    color: #333;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &:hover {
+      background: #e2e6ea;
+    }
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #1976d2;
+    font-size: 0.95rem;
+  }
+
+  .spinner-petit {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d0e4ff;
+    border-top-color: #1976d2;
+    border-radius: 50%;
+    animation: girar 0.8s linear infinite;
+  }
+
+  .error {
+    background: #fee;
+    border: 1px solid #fcc;
+    border-radius: 6px;
+    padding: 0.75rem;
+
+    p {
+      margin: 0.25rem 0;
+      color: #c33;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
