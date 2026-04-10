@@ -19,14 +19,3 @@ export interface ElementCataleg {
   esPopular: boolean;
   unitats: number;
 }
-export interface ElementsCercaResponse {
-  elements: ElementApiResponse[];
-  total: number;
-}
-export type EstatServei = 'inicial' | 'carregant' | 'exit' | 'error';
-
-export interface EstatElements {
-  estat: EstatServei;
-  elements: ElementCataleg[];
-  error?: string;
-}
