@@ -38,3 +38,36 @@ Formulari reactiu per cercar productes del catàleg consultant l’API.
 - "El terme de cerca ha de tenir almenys 2 caràcters."
 - "El terme de cerca no pot superar els 50 caràcters."
 - "No s’han trobat resultats per aquest terme."
+
+## PreferitsPanelComponent
+
+### Funcionalitat
+
+Panell que llista els productes preferits i permet gestionar notes dinàmiques per a cada producte.
+
+### Ús de FormArray
+
+Per a cada preferit es crea un formulari reactiu amb:
+
+- `FormGroup`
+- `FormArray` de notes
+- controls dinàmics afegibles i eliminables
+
+### Validacions de nota
+
+Cada nota aplica:
+
+- `required`
+- `minLength(3)`
+
+### Accions disponibles
+
+- Botó `+` per afegir una nova nota buida
+- Botó `x` per eliminar una nota
+- Botó `Guardar notes` per persistir les notes a localStorage
+
+### Persistència
+
+Les notes es desen conjuntament amb els preferits a `localStorage` sota la clau:
+
+- `preferits-cataleg`

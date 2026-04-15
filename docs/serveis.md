@@ -49,6 +49,7 @@ export const environment = {
 Carrega elements populars del catàleg.
 
 **Flux:**
+
 1. Canvia estat a `'carregant'`
 2. Fa petició GET a `/elements?popular=true`
 3. Adapta resposta amb `adaptarElementsApi`
@@ -60,9 +61,11 @@ Carrega elements populars del catàleg.
 Cerca elements per terme de cerca.
 
 **Paràmetres:**
+
 - `terme`: Text a cercar (mínim 1 caràcter)
 
 **Comportament:**
+
 - Si terme buit: carrega populars
 - Si terme vàlid: cerca amb `/elements?q={terme}`
 
@@ -88,12 +91,12 @@ Neteja estat i elements del servei.
 
 Errors HTTP es transformen en missatges comprensibles:
 
-| Codi | Missatge |
-|------|----------|
-| 0 | "No es pot connectar al servidor..." |
-| 404 | "Endpoint no trobat..." |
-| 500 | "Error intern del servidor" |
-| Altres | "Error desconegut (XXX)..." |
+| Codi   | Missatge                             |
+| ------ | ------------------------------------ |
+| 0      | "No es pot connectar al servidor..." |
+| 404    | "Endpoint no trobat..."              |
+| 500    | "Error intern del servidor"          |
+| Altres | "Error desconegut (XXX)..."          |
 
 ### Exemple d'ús
 
@@ -109,5 +112,26 @@ ngOnInit() {
     console.log('Estat:', this.elementService.estat());
     console.log('Elements:', this.elementService.elements());
   });
+}
+```
+
+## PreferitsService
+
+### Responsabilitats
+
+- Gestiona els productes preferits.
+- Desa preferits i notes a localStorage.
+- Exposa signals reactives per consultar preferits i total.
+
+### Clau de persistència
+
+- `preferits-cataleg`
+
+### Estructura guardada
+
+```ts
+interface PreferitsStorage {
+  preferits: ElementCataleg[];
+  notesPerPreferit: Record<string, string[]>;
 }
 ```

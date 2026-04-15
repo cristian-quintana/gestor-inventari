@@ -1,0 +1,83 @@
+<section class="preferits-panel">
+  <h2>Els meus preferits</h2>
+  <p class="preferits-count">
+    Preferits: {{ preferitsService.totalPreferits() }}
+  </p>
+
+  <div
+    *ngIf="preferitsService.preferits().length === 0"
+    class="sense-preferits"
+  >
+    <p>No hi ha preferits encara.</p>
+  </div>
+
+  <div
+    class="preferit-bloc"
+    *ngFor="
+      let preferit of preferitsService.preferits();
+      trackBy: trackByPreferit
+    "
+  >
+    <div class="preferit-header">
+      <h3>{{ preferit.titol }}</h3>
+      <button
+        type="button"
+        class="btn-eliminar-preferit"
+        (click)="preferitsService.eliminarPreferit(preferit.id)"
+      >
+        Eliminar preferit
+      </button>
+    </div>
+
+    <form
+      [formGroup]="obtenirFormulari(preferit.id)"
+      (ngSubmit)="guardarNotes(preferit.id)"
+    >
+      <div formArrayName="notes" class="notes-llista">
+        <div
+          class="nota-item"
+          *ngFor="
+            let notaControl of obtenirNotesArray(preferit.id).controls;
+            let i = index;
+            trackBy: trackByIndex
+          "
+        >
+          <input
+            type="text"
+            [formControlName]="i"
+            placeholder="Escriviu una nota..."
+          />
+
+          <button
+            type="button"
+            class="btn-eliminar-nota"
+            (click)="eliminarNota(preferit.id, i)"
+          >
+            x
+          </button>
+
+          <div class="error" *ngIf="notaControl.touched && notaControl.invalid">
+            <p *ngIf="notaControl.hasError('required')">
+              La nota no pot estar buida.
+            </p>
+            <p *ngIf="notaControl.hasError('minlength')">
+              La nota ha de tenir almenys 3 caràcters.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-accions">
+        <button
+          type="button"
+          class="btn-afegir-nota"
+          (click)="afegirNota(preferit.id)"
+        >
+          +
+        </button>
+
+        <button type="submit" class="btn-guardar-notes">Guardar nota</button>
+      </div>
+    </form>
+  </div>
+</section>

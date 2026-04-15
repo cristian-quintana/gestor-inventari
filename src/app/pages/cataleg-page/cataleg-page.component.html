@@ -41,27 +41,5 @@
     </div>
   </div>
 
-  <section
-    class="panell-preferits"
-    *ngIf="preferitsService.preferits().length > 0"
-  >
-    <h2>Els meus preferits</h2>
-    <p class="preferits-count">
-      Preferits: {{ preferitsService.totalPreferits() }}
-    </p>
-
-    <ul class="preferits-llista">
-      <li *ngFor="let preferit of preferitsService.preferits()">
-        {{ preferit.titol }}
-      </li>
-    </ul>
-  </section>
-  <section
-    class="panell-preferits"
-    *ngIf="preferitsService.preferits().length === 0"
-  >
-    <h2>Els meus preferits</h2>
-    <p class="preferits-count">Preferits: 0</p>
-    <p>No hi ha preferits encara.</p>
-  </section>
+  <app-preferits-panel></app-preferits-panel>
 </div>

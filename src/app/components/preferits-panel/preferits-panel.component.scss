@@ -1,0 +1,126 @@
+.preferits-panel {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.preferits-count {
+  margin: 0 0 1rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.sense-preferits {
+  color: #666;
+}
+
+.preferit-bloc {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.preferit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.btn-eliminar-preferit {
+  border: none;
+  background: #e74c3c;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #c0392b;
+  }
+}
+
+.notes-llista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nota-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  input {
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font: inherit;
+  }
+}
+
+.btn-eliminar-nota {
+  align-self: flex-start;
+  border: none;
+  background: #f1f3f5;
+  color: #333;
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background: #e2e6ea;
+  }
+}
+
+.notes-accions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn-afegir-nota,
+.btn-guardar-notes {
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+}
+
+.btn-afegir-nota {
+  background: #3498db;
+  color: white;
+
+  &:hover {
+    background: #2980b9;
+  }
+}
+
+.btn-guardar-notes {
+  background: #27ae60;
+  color: white;
+
+  &:hover {
+    background: #229954;
+  }
+}
+
+.error {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 4px;
+  padding: 0.5rem;
+
+  p {
+    margin: 0.2rem 0;
+    color: #c33;
+    font-size: 0.9rem;
+  }
+}
