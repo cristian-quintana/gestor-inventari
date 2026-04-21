@@ -21,7 +21,7 @@ export function codiDisponibleValidator(
       return of(null);
     }
 
-    return timer(500).pipe(
+    return timer(400).pipe(
       switchMap(() => elementService.comprovarSiHiHaResultats(terme)),
       map((hiHaResultats) => (hiHaResultats ? null : { sensResultats: true })),
       catchError(() => of(null)),
