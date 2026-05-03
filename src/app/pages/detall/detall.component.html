@@ -1,0 +1,24 @@
+<section>
+  <h2>Detall del producte</h2>
+
+  <p>
+    ID rebut per URL:
+    <strong>{{ id }}</strong>
+  </p>
+
+  <article *ngIf="element">
+    <h3>{{ element.titol }}</h3>
+
+    <img [src]="element.imatgeUrl" [alt]="element.titol" width="250" />
+
+    <p>{{ element.descripcio }}</p>
+
+    <p><strong>Categoria:</strong> {{ element.categoria }}</p>
+    <p><strong>Preu:</strong> {{ element.preu }} €</p>
+    <p><strong>Stock:</strong> {{ element.unitats }}</p>
+  </article>
+
+  <p *ngIf="!element">No s'ha trobat cap producte amb aquest identificador.</p>
+
+  <a routerLink="/cataleg">Tornar al catàleg</a>
+</section>

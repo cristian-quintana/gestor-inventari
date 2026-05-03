@@ -107,3 +107,17 @@
     color: white;
   }
 }
+.btn-detall {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  background-color: #3498db;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-detall:hover {
+  background-color: #2980b9;
+}

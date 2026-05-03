@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CatalegPageComponent } from './pages/cataleg-page/cataleg-page.component';
-
+import { RouterOutlet } from '@angular/router';
+import { NavegacioComponent } from './components/navegacio/navegacio.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CatalegPageComponent],
+  imports: [RouterOutlet, NavegacioComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

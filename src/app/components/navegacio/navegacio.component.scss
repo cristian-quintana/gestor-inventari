@@ -1,0 +1,19 @@
+.navegacio {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.navegacio a {
+  text-decoration: none;
+  color: #333;
+}
+
+.navegacio a.actiu {
+  font-weight: bold;
+  color: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
+}

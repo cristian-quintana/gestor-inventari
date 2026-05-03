@@ -7,7 +7,7 @@
     [attr.aria-pressed]="preferitsService.esPreferit(producte.id)"
     aria-label="Afegir o eliminar de preferits"
   >
-    {{ preferitsService.esPreferit(producte.id) ? '★' : '☆' }}
+    {{ preferitsService.esPreferit(producte.id) ? "★" : "☆" }}
   </button>
 
   <img
@@ -24,16 +24,15 @@
     </p>
 
     <p class="targeta__descripcio">{{ producte.descripcio }}</p>
-
+    <a class="btn-detall" [routerLink]="['/detall', producte.id]">
+      Veure detall
+    </a>
     <div class="targeta__footer">
       <span class="targeta__preu">
-        {{ producte.preu | number:'1.2-2' }} €
+        {{ producte.preu | number: "1.2-2" }} €
       </span>
 
-      <span
-        class="targeta__stock"
-        [class.baix-stock]="producte.unitats < 20"
-      >
+      <span class="targeta__stock" [class.baix-stock]="producte.unitats < 20">
         Stock: {{ producte.unitats }}
       </span>
     </div>

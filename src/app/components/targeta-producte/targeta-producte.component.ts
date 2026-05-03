@@ -2,10 +2,11 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PreferitsService } from '../../serveis/preferits.service';
 import { ElementCataleg } from '../../models/element.model';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-targeta-producte',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './targeta-producte.component.html',
   styleUrl: './targeta-producte.component.scss',
 })

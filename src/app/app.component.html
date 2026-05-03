@@ -1,16 +1,17 @@
 <a href="#contingut-principal" class="skip-link">
   Saltar al contingut principal
 </a>
-<main id="contingut-principal" class="contenidor">
-  <header class="capcalera">
-    <h1>Gestor d'Inventari</h1>
-    <p>
-      Aplicació desenvolupada per Cristian Quintana per gestionar productes d’un
-      inventari de forma senzilla.
-    </p>
-  </header>
 
-  <section aria-label="Resultats del catàleg">
-    <app-cataleg-page></app-cataleg-page>
-  </section>
+<header class="capcalera">
+  <h1>Gestor d'Inventari</h1>
+  <p>
+    Aplicació desenvolupada per Cristian Quintana per gestionar productes d’un
+    inventari de forma senzilla.
+  </p>
+</header>
+
+<app-navegacio></app-navegacio>
+
+<main id="contingut-principal" class="contenidor">
+  <router-outlet></router-outlet>
 </main>
