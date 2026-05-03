@@ -2,5 +2,13 @@
   <a routerLink="/cataleg" routerLinkActive="actiu">Catàleg</a>
   <a routerLink="/cerca" routerLinkActive="actiu">Cerca</a>
   <a routerLink="/preferits" routerLinkActive="actiu">Preferits</a>
-  <a routerLink="/login" routerLinkActive="actiu">Iniciar sessió</a>
+
+  <ng-container *ngIf="usuari$ | async as usuari; else noAutenticat">
+    <span class="usuari">{{ usuari.nom }}</span>
+    <button type="button" (click)="tancarSessio()">Tancar sessió</button>
+  </ng-container>
+
+  <ng-template #noAutenticat>
+    <a routerLink="/login" routerLinkActive="actiu">Iniciar sessió</a>
+  </ng-template>
 </nav>

@@ -1,4 +1,37 @@
-<section>
+<section class="login">
   <h2>Iniciar sessió</h2>
-  <p>Aquesta vista tindrà el formulari d'autenticació simulada.</p>
+  <p>Accedeix a la secció protegida de preferits.</p>
+
+  <form class="login__formulari" (ngSubmit)="iniciarSessio()">
+    <div class="camp">
+      <label for="email">Correu electrònic</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        [(ngModel)]="email"
+        placeholder="admin@test.com"
+      />
+    </div>
+
+    <div class="camp">
+      <label for="contrasenya">Contrasenya</label>
+      <input
+        id="contrasenya"
+        name="contrasenya"
+        type="password"
+        [(ngModel)]="contrasenya"
+        placeholder="1234"
+      />
+    </div>
+
+    <p class="login__error" *ngIf="error">{{ error }}</p>
+
+    <button type="submit">Entrar</button>
+  </form>
+
+  <p class="login__ajuda">
+    Credencials de prova: <strong>admin&#64;test.com</strong> /
+    <strong>1234</strong>
+  </p>
 </section>
