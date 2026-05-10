@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PreferitsService } from '../../serveis/preferits.service';
 import { ElementCataleg } from '../../models/element.model';
@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
   imports: [CommonModule, RouterLink],
   templateUrl: './targeta-producte.component.html',
   styleUrl: './targeta-producte.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TargetaProducteComponent {
   @Input({ required: true }) producte!: ElementCataleg;

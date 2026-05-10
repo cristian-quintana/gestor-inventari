@@ -1,12 +1,12 @@
 # Gestor d'Inventari - Cristian Quintana
 
-## Descripció:
+## 1. Descripció:
 
 Aplicació per gestionar un inventari, veure productes, afegir-ne, editar, eliminar, filtrar per categories, avís de stock baix, estadistiques..
 
 Aquest projecte forma part d'una pràctica del CFGS de DAM a l'IOC.
 
-## Stack Tècnic:
+## 2. Stack Tècnic:
 
 - Angular CLI 18.2.21
 - SCSS
@@ -14,30 +14,59 @@ Aquest projecte forma part d'una pràctica del CFGS de DAM a l'IOC.
 - Node.js v22.16.0
 - NPM 11.6.0
 
-## Estat
 
-Configuració inicial del projecte completada i verificada.
+## 3. Mapa de rutes
 
-## Development server
+| Path          | Component / càrrega                      | Accés  | Descripció                                      |
+| ------------- | ----------------------------------------- | ------ | ----------------------------------------------- |
+| `/`           | Redirecció a `/cataleg`                   | Públic | Redirigeix a la pàgina principal                |
+| `/cataleg`    | `CatalegPageComponent`                    | Públic | Llistat principal d'elements                    |
+| `/cerca`      | `CercaComponent`                          | Públic | Vista de cerca                                  |
+| `/detall/:id` | `DetallComponent`                         | Públic | Vista de detall d'un element segons l'id de URL |
+| `/preferits`  | `PreferitsComponent` amb `loadComponent`  | Privat | Secció de preferits protegida amb `authGuard`   |
+| `/login`      | `LoginComponent`                          | Públic | Formulari d'autenticació simulada               |
+| `**`          | Redirecció a `/cataleg`                   | Públic | Gestiona URLs no reconegudes                    |
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 4. Instruccions d'execució en local
 
-## Code scaffolding
+```bash
+git clone [url-repositori]
+cd gestor-inventari
+npm install
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Després obriu el navegador a:
 
-## Build
+```txt
+http://localhost:4200
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Si es fa servir `json-server` per a l'API mock, cal tenir-lo actiu segons la configuració del projecte.
 
-## Running unit tests
+## 5. Build de producció
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Per generar el paquet de producció:
 
-## Running end-to-end tests
+```bash
+npm run build -- --configuration production
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Angular genera els fitxers dins de la carpeta:
 
-## Further help
+```
+dist/
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Després d'executar el build, cal adjuntar una captura de la terminal on es vegi la taula de mides del bundle, incloent els fitxers inicials i els lazy chunks.
+
+**Mida aproximada del bundle:** el build de producció ha generat un `Initial total` de **387.78 kB** en mida raw i **103.28 kB** de mida estimada de transferència.
+## 6. Credencials de prova
+
+Per accedir a la ruta protegida `/preferits`, utilitzeu:
+
+| Camp        | Valor            |
+| ----------- | ---------------- |
+| Email       | `admin@test.com` |
+| Contrasenya | `1234`           |
+

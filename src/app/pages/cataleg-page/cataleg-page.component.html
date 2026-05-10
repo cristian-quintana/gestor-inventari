@@ -33,11 +33,17 @@
     </div>
 
     <!-- Llistat d'elements -->
-    <div class="elements-grid" *ngIf="elementService.elements().length > 0">
-      <app-targeta-producte
-        *ngFor="let element of elementService.elements()"
-        [producte]="element"
-      ></app-targeta-producte>
-    </div>
+    <cdk-virtual-scroll-viewport
+      class="viewport"
+      [itemSize]="alcadaElement"
+      *ngIf="elementsVirtualitzats().length > 0"
+    >
+      <div
+        class="element-virtual"
+        *cdkVirtualFor="let element of elementsVirtualitzats()"
+      >
+        <app-targeta-producte [producte]="element"></app-targeta-producte>
+      </div>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>

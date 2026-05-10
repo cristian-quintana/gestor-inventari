@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy,Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ElementCataleg } from '../../models/element.model';
 import { ElementService } from '../../serveis/element.service';
@@ -10,6 +10,7 @@ import { ElementService } from '../../serveis/element.service';
   imports: [CommonModule, RouterLink],
   templateUrl: './detall.component.html',
   styleUrl: './detall.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetallComponent implements OnInit {
   id: string | null = null;

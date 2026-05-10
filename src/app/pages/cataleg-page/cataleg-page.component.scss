@@ -125,3 +125,15 @@
 .preferits-llista li {
   margin-bottom: 0.35rem;
 }
+.viewport {
+  height: 600px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.element-virtual {
+  height: 420px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
